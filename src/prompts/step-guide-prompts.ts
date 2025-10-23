@@ -12,8 +12,13 @@ import {
  * Generate structured JSON guide prompt
  * Returns AI guide in JSON format for better parsing
  */
-export function getStructuredGuidePrompt(category: UserCategory, websiteInfo: string): string {
+export function getStructuredGuidePrompt(
+  category: UserCategory, 
+  websiteInfo: string, 
+  customStepCount?: number
+): string {
   const config = CATEGORY_CONFIG[category];
+  const stepCount = customStepCount || config.maxSteps;
   
   return `You are a helpful guide for ${category} users learning to use websites.
 
@@ -24,7 +29,7 @@ Task: Create a comprehensive, structured guide in VALID JSON format.
 
 Requirements:
 - Tone: ${config.tone}
-- Exactly ${config.maxSteps} steps
+- Exactly ${stepCount} steps
 - Each step must be clear and actionable
 ${CATEGORY_INSTRUCTIONS[category]}
 
@@ -53,7 +58,7 @@ YOU MUST respond with ONLY valid JSON in this exact structure:
       "whatToExpect": "Expected result",
       "tips": ["Helpful tip"]
     }
-    // Continue for all ${config.maxSteps} steps
+    // Continue for all ${stepCount} steps
   ],
   "nextSteps": {
     "title": "What to do next",
@@ -65,7 +70,7 @@ YOU MUST respond with ONLY valid JSON in this exact structure:
     "encouragement": "Positive message for the user"
   },
   "metadata": {
-    "totalSteps": ${config.maxSteps},
+    "totalSteps": ${stepCount},
     "difficulty": "easy",
     "estimatedTime": "5-10 minutes"
   }

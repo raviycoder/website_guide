@@ -3,6 +3,7 @@ import { NotepadText, Route } from 'lucide-react'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CategorySelector, type Category } from './category-selector'
+import { StepCountSelector } from './step-count-selector'
 
 export type ContentType = 'summary' | 'steps-guide' | 'quick-guide'
 
@@ -12,6 +13,8 @@ interface ContentControlsProps {
   onCategoryChange: (category: Category) => void
   onContentTypeChange?: (contentType: ContentType) => void
   defaultContentType?: ContentType
+  stepCount?: number
+  onStepCountChange?: (count: number) => void
 }
 
 export default function ContentControls({
@@ -20,6 +23,8 @@ export default function ContentControls({
   disabled,
   onContentTypeChange,
   defaultContentType = 'summary',
+  stepCount = 7,
+  onStepCountChange,
 }: ContentControlsProps) {
   const handleTabChange = (value: string) => {
     if (onContentTypeChange) {
@@ -68,6 +73,13 @@ export default function ContentControls({
           disabled={disabled}
           showButton={false}
         />
+        <div className="mt-3">
+          <StepCountSelector
+            selectedStepCount={stepCount}
+            onStepCountChange={onStepCountChange || (() => {})}
+            disabled={disabled}
+          />
+        </div>
         <p className="text-xs text-muted-foreground mt-2">
           Get detailed step-by-step instructions with tips and guidance
         </p>

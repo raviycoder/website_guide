@@ -12,13 +12,13 @@ export function CategoryDescription({ category, contentType = 'summary' }: Categ
 
   const summaryDescriptions = {
     kids: '👶 Kids Mode: Simple, fun overview with easy words and emojis',
-    elders: '👴 Elders Mode: Clear, concise summary with no technical jargon',
+    intermediate: '⚡ Intermediate Mode: Efficient summary with key insights and pro tips',
     beginners: '🎓 Beginners Mode: Friendly overview explaining key features',
   }
 
   const stepsDescriptions = {
     kids: '👶 Kids Mode: Fun step-by-step adventure with emojis and encouragement',
-    elders: '👴 Elders Mode: Patient, detailed steps with safety reminders',
+    intermediate: '⚡ Intermediate Mode: Streamlined steps with productivity shortcuts',
     beginners: '🎓 Beginners Mode: Complete guide with tips and explanations',
   }
 

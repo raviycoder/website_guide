@@ -1,6 +1,6 @@
 // src/prompts/config.ts
 
-export type UserCategory = 'kids' | 'elders' | 'beginners';
+export type UserCategory = 'kids' | 'intermediate' | 'beginners';
 
 export interface PromptConfig {
   maxSteps: number;
@@ -47,10 +47,10 @@ export const CATEGORY_CONFIG: Record<UserCategory, PromptConfig> = {
     tone: 'fun, friendly, and simple',
     formatting: ['emojis', 'short sentences', 'encouraging words']
   },
-  elders: {
-    maxSteps: 6,
-    tone: 'patient, clear, and reassuring',
-    formatting: ['no jargon', 'detailed steps', 'safety reminders']
+  intermediate: {
+    maxSteps: 7,
+    tone: 'balanced, efficient, and practical',
+    formatting: ['concise steps', 'key insights', 'productivity tips']
   },
   beginners: {
     maxSteps: 8,
@@ -71,14 +71,14 @@ export const CATEGORY_INSTRUCTIONS: Record<UserCategory, string> = {
 - Compare website features to familiar things (like toys or games)
 - Make it feel like an adventure or game`,
 
-  elders: `
-- Use clear, explicit language with no abbreviations
-- Explain what will happen BEFORE each action
-- Add reassuring phrases like "This is safe to click" or "Don't worry"
-- Mention where to look on the screen (top, bottom, left, right)
-- Avoid slang, emoji overload, or trendy terms
-- Include "What to expect next" after important steps
-- Emphasize safety and privacy`,
+  intermediate: `
+- Use standard web terminology (users should be familiar with common terms)
+- Focus on efficiency and best practices
+- Include keyboard shortcuts where applicable
+- Highlight advanced features and productivity tips
+- Provide direct, action-oriented instructions
+- Skip basic explanations but clarify complex concepts
+- Mention time-saving techniques and pro tips`,
 
   beginners: `
 - Explain common web terms in parentheses (e.g., "navigation bar (the menu at the top)")

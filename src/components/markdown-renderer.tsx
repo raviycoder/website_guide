@@ -44,10 +44,10 @@ export function MarkdownRenderer({ content, className = '' }: MarkdownRendererPr
         
         // Emphasis
         strong: ({ children }) => (
-          <strong className="font-bold text-gray-900">{children}</strong>
+          <strong className="font-bold text-gray-900 dark:text-gray-100">{children}</strong>
         ),
         em: ({ children }) => (
-          <em className="italic text-gray-800">{children}</em>
+          <em className="italic text-gray-800 dark:text-gray-300">{children}</em>
         ),
         
         // Links

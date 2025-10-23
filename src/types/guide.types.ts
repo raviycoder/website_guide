@@ -1,7 +1,7 @@
 // src/types/guide.types.ts
 
 export type ContentType = 'summary' | 'steps-guide'
-export type Category = 'kids' | 'elders' | 'beginners' | ''
+export type Category = 'kids' | 'intermediate' | 'beginners' | ''
 
 export interface GuideStep {
   stepNumber: number

@@ -26,8 +26,8 @@ export function GuideDisplay({
     switch (category) {
       case 'kids':
         return '👶'
-      case 'elders':
-        return '👴'
+      case 'intermediate':
+        return '⚡'
       case 'beginners':
         return '🎓'
       default:
@@ -47,7 +47,7 @@ export function GuideDisplay({
   })
 
   return (
-    <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+    <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg dark:bg-green-950 dark:border-green-800">
       <h3 className="font-semibold text-sm mb-3 flex items-center gap-2">
         <span>{getCategoryIcon()}</span>
         <span>Your Guide:</span>

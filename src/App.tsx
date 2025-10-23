@@ -18,6 +18,7 @@ import { BadgeInfo } from 'lucide-react'
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('')
   const [contentType, setContentType] = useState<ContentType>('summary')
+  const [stepCount, setStepCount] = useState<number>(7)
 
   // Get website data and AI session
   const { websiteData, aiPromptData, loading, error } = useWebsiteInfo()
@@ -27,6 +28,7 @@ function App() {
   const { guide, structuredGuide, generating, generateGuide, resetGuide } = useGuideGenerator({
     session,
     aiPromptData,
+    stepCount,
   })
 
   const handleStartGuide = () => {
@@ -67,6 +69,8 @@ function App() {
         disabled={!isReady || generating}
         onContentTypeChange={handleContentTypeChange}
         defaultContentType={contentType}
+        stepCount={stepCount}
+        onStepCountChange={setStepCount}
       />
 
       <StartGuideButton

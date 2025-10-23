@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import { Label } from './ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 
-export type Category = 'kids' | 'elders' | 'beginners' | ''
+export type Category = 'kids' | 'intermediate' | 'beginners' | ''
 
 interface CategorySelectorProps {
   selectedCategory: Category
@@ -35,17 +35,17 @@ export function CategorySelector({
           <SelectTrigger id="category">
             <SelectValue placeholder="Choose a category" />
           </SelectTrigger>
-          <SelectContent className="bg-amber-50">
+          <SelectContent className="bg-gray-50 dark:bg-slate-900">
             <SelectItem value="kids">
               <div className="flex items-center gap-2">
                 <span className="text-lg">👶</span>
                 <span>Kids</span>
               </div>
             </SelectItem>
-            <SelectItem value="elders">
+            <SelectItem value="intermediate">
               <div className="flex items-center gap-2">
-                <span className="text-lg">👴</span>
-                <span>Elders</span>
+                <span className="text-lg">⚡</span>
+                <span>Intermediate</span>
               </div>
             </SelectItem>
             <SelectItem value="beginners">
@@ -56,7 +56,7 @@ export function CategorySelector({
             </SelectItem>
           </SelectContent>
         </Select>
-        {showButton && (
+        {showButton ? (
           <Button
             disabled={disabled}
             onClick={() => {
@@ -69,13 +69,13 @@ export function CategorySelector({
             variant="outline"
             className={`max-w-20 ml-2 rounded-full ${
               quickGuideSelected
-                ? 'bg-gray-900 text-primary-foreground hover:bg-gray-800 hover:text-gray-200'
+                ? 'bg-gray-900 text-primary-foreground hover:bg-gray-800 hover:text-gray-200 dark:bg-gray-200 dark:text-gray-900 hover:dark:bg-gray-300 hover:dark:text-gray-800'
                 : ''
             }`}
           >
             Quick
           </Button>
-        )}
+        ) : null}
       </div>
     </div>
   )

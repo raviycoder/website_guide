@@ -7,7 +7,7 @@ import type { UserCategory } from './config';
  */
 export const WELCOME_MESSAGES: Record<UserCategory, string> = {
   kids: "Hey there, explorer! 🎉 Let's learn how to use this website together!",
-  elders: "Hello! I'm here to help you navigate this website step by step.",
+  intermediate: "Welcome! Let me show you the key features and efficient ways to use this site.",
   beginners: "Welcome! Let me guide you through using this website."
 };
 
@@ -16,7 +16,7 @@ export const WELCOME_MESSAGES: Record<UserCategory, string> = {
  */
 export const ERROR_MESSAGES: Record<UserCategory, string> = {
   kids: "Oops! Something went wrong. Let's try again! 🔄",
-  elders: "We encountered an issue. Please click the button to try again.",
+  intermediate: "An error occurred. Please retry to generate your guide.",
   beginners: "Unable to generate guide. Please try again or refresh the page."
 };
 
@@ -25,7 +25,7 @@ export const ERROR_MESSAGES: Record<UserCategory, string> = {
  */
 export const LOADING_MESSAGES: Record<UserCategory, string> = {
   kids: "🎨 Creating your fun guide...",
-  elders: "📝 Preparing clear instructions for you...",
+  intermediate: "⚡ Generating efficient guide with key insights...",
   beginners: "💡 Generating your helpful guide..."
 };
 
@@ -34,7 +34,7 @@ export const LOADING_MESSAGES: Record<UserCategory, string> = {
  */
 export const CATEGORY_DESCRIPTIONS: Record<UserCategory, string> = {
   kids: "👶 Kids Mode: Simple, fun explanations with visual aids",
-  elders: "👴 Elders Mode: Clear, patient guidance with larger text",
+  intermediate: "⚡ Intermediate Mode: Efficient guidance with productivity tips",
   beginners: "🎓 Beginners Mode: Detailed explanations for first-time users"
 };
 
@@ -43,7 +43,7 @@ export const CATEGORY_DESCRIPTIONS: Record<UserCategory, string> = {
  */
 export const SUCCESS_MESSAGES: Record<UserCategory, string> = {
   kids: "🎉 Your guide is ready! Let's get started!",
-  elders: "✅ Your step-by-step guide is ready.",
+  intermediate: "✓ Your streamlined guide is ready to use.",
   beginners: "✓ Guide generated successfully!"
 };
 
@@ -52,7 +52,7 @@ export const SUCCESS_MESSAGES: Record<UserCategory, string> = {
  */
 export const BUTTON_LABELS: Record<UserCategory, string> = {
   kids: "🚀 Start Fun Guide",
-  elders: "📖 Start Clear Guide",
+  intermediate: "⚡ Start Efficient Guide",
   beginners: "🎓 Start Learning Guide"
 };
 
@@ -61,6 +61,6 @@ export const BUTTON_LABELS: Record<UserCategory, string> = {
  */
 export const EMPTY_STATE_MESSAGES: Record<UserCategory, string> = {
   kids: "Let's visit a website first! 🌐",
-  elders: "Please open a website to get started.",
+  intermediate: "Navigate to a website to get started with your guide.",
   beginners: "Navigate to any website to receive guidance."
 };

@@ -13,9 +13,10 @@ interface AISession {
 interface UseGuideGeneratorProps {
   session: AISession | null
   aiPromptData: string | null
+  stepCount?: number
 }
 
-export function useGuideGenerator({ session, aiPromptData }: UseGuideGeneratorProps) {
+export function useGuideGenerator({ session, aiPromptData, stepCount = 7 }: UseGuideGeneratorProps) {
   const [guide, setGuide] = useState('')
   const [structuredGuide, setStructuredGuide] = useState<WebsiteGuide | null>(null)
   const [generating, setGenerating] = useState(false)
@@ -58,17 +59,21 @@ export function useGuideGenerator({ session, aiPromptData }: UseGuideGeneratorPr
       // Generate different prompts based on content type
       if (selectedContentType === 'summary') {
         // Generate summary prompt
-        prompt = getSummaryPrompt(category as 'kids' | 'elders' | 'beginners', aiPromptData)
+        prompt = getSummaryPrompt(category as 'kids' | 'intermediate' | 'beginners', aiPromptData)
         result = await session.prompt(prompt)
         setGuide(result)
       } else if (selectedContentType === 'quick-guide') {
         // Generate quick guide prompt
-        prompt = getQuickTipPrompt(category as 'kids' | 'elders' | 'beginners', aiPromptData)
+        prompt = getQuickTipPrompt(category as 'kids' | 'intermediate' | 'beginners', aiPromptData)
         result = await session.prompt(prompt)
         setGuide(result)
       } else {
         // Generate structured step-by-step guide
-        prompt = getStructuredGuidePrompt(category as 'kids' | 'elders' | 'beginners', aiPromptData)
+        prompt = getStructuredGuidePrompt(
+          category as 'kids' | 'intermediate' | 'beginners', 
+          aiPromptData, 
+          stepCount
+        )
         result = await session.prompt(prompt)
 
         console.log('Raw AI response:', result)
