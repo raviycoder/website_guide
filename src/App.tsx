@@ -59,7 +59,7 @@ function App() {
   }
 
   return (
-    <div className="w-[380px] min-h-[500px] max-h-[600px] overflow-y-auto p-4 space-y-3 bg-background text-foreground">
+    <div className="w-full h-screen overflow-y-auto p-4 space-y-3 bg-background text-foreground">
       <WebsiteHeader title={websiteData.title} url={websiteData.url} />
       <AIStatusIndicator isReady={isReady} error={aiError} />
 
