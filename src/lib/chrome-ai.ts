@@ -3,13 +3,16 @@ export async function checkAIAvailability(): Promise<string> {
 }
 
 export async function createAISession(temperature = 0.8, topK = 3): Promise<LanguageModelSession> {
-  return await LanguageModel.create({ temperature, topK })
+  return await LanguageModel.create({ temperature, topK, outputLanguage: 'en' })
 }
 
 export function destroyAISession(session: LanguageModelSession): void {
-  session.destroy();
+  session.destroy()
 }
 
-export async function generateGuidedInstructions(session: LanguageModelSession, prompt: string): Promise<string> {
+export async function generateGuidedInstructions(
+  session: LanguageModelSession,
+  prompt: string
+): Promise<string> {
   return await session.prompt(prompt)
 }

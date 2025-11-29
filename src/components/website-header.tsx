@@ -2,12 +2,15 @@
 import FeatureInfo from './feature-info'
 import ThemeSwitcher from './theme-switcher'
 
+import { RotateCw } from 'lucide-react'
+
 interface WebsiteHeaderProps {
   title: string
   url: string
+  onReload: () => void
 }
 
-export function WebsiteHeader({ title, url }: WebsiteHeaderProps) {
+export function WebsiteHeader({ title, url, onReload }: WebsiteHeaderProps) {
   return (
     <div className="border-b">
       <div className="flex justify-evenly items-center">
@@ -24,11 +27,23 @@ export function WebsiteHeader({ title, url }: WebsiteHeaderProps) {
         </div>
         <ThemeSwitcher />
       </div>
-
-      {/* Show current website */}
-      <div className="mt-2 p-2 bg-blue-50 dark:bg-blue-950 rounded text-xs">
-        <p className="font-semibold truncate">{title}</p>
-        <p className="text-gray-600 dark:text-gray-400 truncate">{url}</p>
+      <div className="flex items-center gap-2 px-2 pb-2">
+        {' '}
+        {/* Show current website */}
+        <div className="mt-2 p-2 bg-blue-50 dark:bg-blue-950 rounded text-xs grow min-w-0">
+          <p className="font-semibold truncate">{title}</p>
+          <p className="text-gray-600 dark:text-gray-400 truncate">{url}</p>
+        </div>
+        {/* reload button for current website */}
+        <div className="shrink-0">
+          <button
+            onClick={onReload}
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+            title="Reload website info"
+          >
+            <RotateCw size={16} className="text-gray-500" />
+          </button>
+        </div>
       </div>
     </div>
   )

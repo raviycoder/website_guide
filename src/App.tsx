@@ -21,7 +21,7 @@ function App() {
   const [stepCount, setStepCount] = useState<number>(7)
 
   // Get website data and AI session
-  const { websiteData, aiPromptData, loading, error } = useWebsiteInfo()
+  const { websiteData, aiPromptData, loading, error, refetch } = useWebsiteInfo()
   const { session, isReady, error: aiError } = useAI()
 
   // Guide generation logic
@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="w-full h-screen overflow-y-auto p-4 space-y-3 bg-background text-foreground">
-      <WebsiteHeader title={websiteData.title} url={websiteData.url} />
+      <WebsiteHeader title={websiteData.title} url={websiteData.url} onReload={refetch} />
       <AIStatusIndicator isReady={isReady} error={aiError} />
 
       <ContentControls
